@@ -12,11 +12,16 @@ public class TrafficLight {
         this.transposition = transposition;
     }
 
-    public Class <? extends TranspositionInterface>getTranspositionClass(){
+    public Class<? extends TranspositionInterface> getTranspositionClass() {
 
         return transposition.getClass();
     }
 
-    public TrafficLightState getState(){return transposition.getActual();}
-    public void changeStateToNext(){transposition = transposition.getTranspositionFor(transposition.getNext());}
+    public TrafficLightState getState() {
+        return transposition.getActual();
+    }
+
+    public void changeStateToNext() {
+        transposition = transposition.getTranspositionFor(transposition.getNext());
+    }
 }

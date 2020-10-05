@@ -1,10 +1,7 @@
 package trafficligh.model.light;
 
 
-import impl.GreenLight;
-import impl.RedLight;
-import impl.RedYellow;
-import impl.YellowLight;
+import impl.*;
 import org.junit.Assert;
 import org.junit.Test;
 import trafficlight.model.state.LightStateDescription;
