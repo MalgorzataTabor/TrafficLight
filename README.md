@@ -7,4 +7,10 @@ The goal is to implement an intersection solution using the smallest possible co
 # Configuration
 This project is written in Java and is built using Maven.Unit test are written using the Junit framework
 
+# Installation
+
+```
+$ IDE intellij IDEA
+$ Projekt maven
+
 
