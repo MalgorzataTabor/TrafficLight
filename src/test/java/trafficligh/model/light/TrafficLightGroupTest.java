@@ -11,19 +11,19 @@ import trafficlight.model.state.LightStateDescriptionPeople;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TrafficLightGroupTest  {
+public class TrafficLightGroupTest {
 
-    public  TrafficLightGroup lightGroupRedStart;
-    public  TrafficLightGroup lightGroupGreenStart;
+    public TrafficLightGroup lightGroupRedStart;
+    public TrafficLightGroup lightGroupGreenStart;
 
 
     @BeforeEach
 
-    public void setUp(){
+    public void setUp() {
 
         TrafficLight carLightRed = new TrafficLight(LightStateDescription.RED_TO_REDYELLOW);
         TrafficLight peopleLightRed = new TrafficLight(LightStateDescriptionPeople.RED_TO_GREEN);
-        lightGroupRedStart = new TrafficLightGroup(carLightRed,peopleLightRed);
+        lightGroupRedStart = new TrafficLightGroup(carLightRed, peopleLightRed);
 
 
         TrafficLight carLightGreen = new TrafficLight(LightStateDescription.GREEN_TO_YELLOW);
@@ -32,19 +32,56 @@ public class TrafficLightGroupTest  {
     }
 
     @Test
-     void changeCarToRed() {
+    void changeCarToRed() {
         assertEquals(GreenLight.getInstance(), lightGroupGreenStart.getStateFor(LightModels.CAR_LIGHT));
         lightGroupGreenStart.changeToRedFor(LightModels.CAR_LIGHT);
         assertEquals(RedLight.getInstance(), lightGroupGreenStart.getStateFor(LightModels.CAR_LIGHT));
     }
 
     @Test
-     void changePeopleToRed(){
-        assertEquals(GreenLight.getInstance(),lightGroupGreenStart.getStateFor(LightModels.PEOPLE_LIGHT));
+    void changePeopleToRed() {
+        assertEquals(GreenLight.getInstance(), lightGroupGreenStart.getStateFor(LightModels.PEOPLE_LIGHT));
         lightGroupGreenStart.changeToRedFor(LightModels.PEOPLE_LIGHT);
         assertEquals(RedLight.getInstance(), lightGroupGreenStart.getStateFor(LightModels.PEOPLE_LIGHT));
     }
 
+    @Test
+    void changePeopleToGreen(){
+
+        assertEquals(RedLight.getInstance(), lightGroupRedStart.getStateFor(LightModels.PEOPLE_LIGHT));
+        lightGroupRedStart.changeToRedFor(LightModels.PEOPLE_LIGHT);
+        assertEquals(GreenLight.getInstance(),lightGroupGreenStart.getStateFor(LightModels.PEOPLE_LIGHT));
+
+    }
+
+    @Test
+    void changeCarToGreen(){
+
+        assertEquals(RedLight.getInstance(), lightGroupRedStart.getStateFor(LightModels.CAR_LIGHT));
+        lightGroupRedStart.changeToGreenFor(LightModels.CAR_LIGHT);
+        assertEquals(GreenLight.getInstance(), lightGroupGreenStart.getStateFor(LightModels.CAR_LIGHT));
+    }
+
+    @Test
+    void changeAlToGreen(){
+         assertEquals(RedLight.getInstance(), lightGroupRedStart.getStateFor(LightModels.CAR_LIGHT));
+         assertEquals(RedLight.getInstance(), lightGroupRedStart.getStateFor(LightModels.PEOPLE_LIGHT));
+         lightGroupRedStart.changeAllToGreen();
+         assertEquals(GreenLight.getInstance(), lightGroupGreenStart.getStateFor(LightModels.CAR_LIGHT));
+         assertEquals(GreenLight.getInstance(), lightGroupGreenStart.getStateFor(LightModels.PEOPLE_LIGHT));
+
+    }
+
+    @Test
+    void changeAllToRed(){
+        assertEquals(GreenLight.getInstance(), lightGroupGreenStart.getStateFor(LightModels.CAR_LIGHT));
+        assertEquals(GreenLight.getInstance(), lightGroupGreenStart.getStateFor(LightModels.PEOPLE_LIGHT));
+        lightGroupGreenStart.changeAllToGreen();
+        assertEquals(RedLight.getInstance(), lightGroupRedStart.getStateFor(LightModels.CAR_LIGHT));
+        assertEquals(RedLight.getInstance(), lightGroupRedStart.getStateFor(LightModels.PEOPLE_LIGHT));
+
+
+    }
 
 
 

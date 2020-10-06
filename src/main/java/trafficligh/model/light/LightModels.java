@@ -1,5 +1,6 @@
 package trafficligh.model.light;
 
+import impl.TrafficLight;
 import impl.TranspositionInterface;
 import trafficlight.model.state.LightStateDescription;
 import trafficlight.model.state.LightStateDescriptionPeople;
@@ -16,12 +17,12 @@ public enum LightModels {
         this.transpositionInterface = transpositionInterface;
     }
 
-    public Class<? extends TranspositionInterface>getTranspositionClass(){
+    public Class<? extends TranspositionInterface> getTranspositionClass() {
 
         return transpositionInterface.getClass();
     }
 
-    public TrafficLight getModel(){
+    public TrafficLight getModel() {
         return new TrafficLight(transpositionInterface);
     }
 }

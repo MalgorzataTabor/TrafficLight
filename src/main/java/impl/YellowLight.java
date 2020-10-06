@@ -18,11 +18,11 @@ public class YellowLight extends TrafficLightState {
     public YellowLight() {
     }
 
-    private static class Singleton{
+    private static class Singleton {
         private static YellowLight INSTANCE = new YellowLight();
     }
 
-    public static YellowLight getInstance(){
+    public static YellowLight getInstance() {
         return Singleton.INSTANCE;
     }
 }

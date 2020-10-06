@@ -33,12 +33,12 @@ public enum LightStateDescriptionPeople implements TranspositionInterface {
 
     @Override
     public TranspositionInterface getTranspositionFor(TrafficLightState now) {
-        LightStateDescriptionPeople [] values = values();
+        LightStateDescriptionPeople[] values = values();
 
-        for (int i = 0; i <values.length ; i++) {
+        for (int i = 0; i < values.length; i++) {
             LightStateDescriptionPeople value = values[i];
 
-            if(value.actually.equals(now)){
+            if (value.actually.equals(now)) {
                 return value;
             }
 

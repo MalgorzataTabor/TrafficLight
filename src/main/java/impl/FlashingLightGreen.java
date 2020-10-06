@@ -2,7 +2,7 @@ package impl;
 
 import trafficlight.model.state.TrafficLightState;
 
-public class FlashingLightGreen extends TrafficLightState{
+public class FlashingLightGreen extends TrafficLightState {
 
     public FlashingLightGreen() {
     }
@@ -22,11 +22,11 @@ public class FlashingLightGreen extends TrafficLightState{
 
     }
 
-    private static class Singleton{
+    private static class Singleton {
         private static FlashingLightGreen INSTANCE = new FlashingLightGreen();
     }
 
-    public static FlashingLightGreen getInstance(){
+    public static FlashingLightGreen getInstance() {
         return Singleton.INSTANCE;
     }
 }

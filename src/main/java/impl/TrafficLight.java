@@ -1,4 +1,4 @@
-package trafficligh.model.light;
+package impl;
 
 import impl.TranspositionInterface;
 import trafficlight.model.state.TrafficLightState;

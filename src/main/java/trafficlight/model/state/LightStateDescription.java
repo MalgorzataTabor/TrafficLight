@@ -5,11 +5,10 @@ import impl.*;
 
 public enum LightStateDescription implements TranspositionInterface {
 
-    RED_TO_REDYELLOW (RedLight.getInstance(), RedYellow.getInstance()),
-    REDYELLOW_TO_GREEN (RedYellow.getInstance(), GreenLight.getInstance()),
-    YELLOW_TO_RED (YellowLight.getInstance(), RedLight.getInstance()),
-    GREEN_TO_YELLOW (GreenLight.getInstance(), YellowLight.getInstance());
-
+    RED_TO_REDYELLOW(RedLight.getInstance(), RedYellow.getInstance()),
+    REDYELLOW_TO_GREEN(RedYellow.getInstance(), GreenLight.getInstance()),
+    YELLOW_TO_RED(YellowLight.getInstance(), RedLight.getInstance()),
+    GREEN_TO_YELLOW(GreenLight.getInstance(), YellowLight.getInstance());
 
 
     private TrafficLightState actually;
@@ -25,6 +24,7 @@ public enum LightStateDescription implements TranspositionInterface {
     public TrafficLightState getActual() {
         return actually;
     }
+
     @Override
     public TrafficLightState getNext() {
         return next;
@@ -34,10 +34,10 @@ public enum LightStateDescription implements TranspositionInterface {
 
         LightStateDescription[] values = values();
 
-        for(int i =0;i<values.length;i++ ){
+        for (int i = 0; i < values.length; i++) {
             LightStateDescription value = values[i];
 
-            if(value.actually.equals(now)){
+            if (value.actually.equals(now)) {
                 return value;
             }
         }

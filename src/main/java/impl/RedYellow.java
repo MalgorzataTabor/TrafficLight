@@ -18,13 +18,13 @@ public class RedYellow extends TrafficLightState {
         System.out.println("The light is RedYellow");
     }
 
-    private static class Singleton{
+    private static class Singleton {
         private static RedYellow INSTANCE = new RedYellow();
 
 
     }
 
-    public static RedYellow getInstance(){
+    public static RedYellow getInstance() {
         return Singleton.INSTANCE;
     }
 }

@@ -20,12 +20,12 @@ public class GreenLight extends TrafficLightState {
 
     }
 
-    private static class Singleton{
-        private static GreenLight INSTANCE= new GreenLight();
+    private static class Singleton {
+        private static GreenLight INSTANCE = new GreenLight();
 
     }
 
-    public static GreenLight getInstance(){
+    public static GreenLight getInstance() {
         return Singleton.INSTANCE;
 
     }
